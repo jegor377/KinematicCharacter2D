@@ -1,0 +1,288 @@
+[gd_scene load_steps=57 format=2]
+
+[ext_resource path="res://assets/Individual Sprites/adventurer-idle-2-01.png" type="Texture" id=1]
+[ext_resource path="res://assets/Individual Sprites/adventurer-idle-2-03.png" type="Texture" id=2]
+[ext_resource path="res://assets/Individual Sprites/adventurer-idle-03.png" type="Texture" id=3]
+[ext_resource path="res://assets/Individual Sprites/adventurer-run-01.png" type="Texture" id=4]
+[ext_resource path="res://assets/Individual Sprites/adventurer-run-04.png" type="Texture" id=5]
+[ext_resource path="res://assets/Individual Sprites/adventurer-fall-00.png" type="Texture" id=6]
+[ext_resource path="res://assets/Individual Sprites/adventurer-fall-01.png" type="Texture" id=7]
+[ext_resource path="res://assets/Individual Sprites/adventurer-jump-02.png" type="Texture" id=8]
+[ext_resource path="res://assets/Individual Sprites/adventurer-jump-03.png" type="Texture" id=9]
+[ext_resource path="res://assets/Individual Sprites/adventurer-run-05.png" type="Texture" id=10]
+[ext_resource path="res://player.gd" type="Script" id=11]
+[ext_resource path="res://assets/Individual Sprites/adventurer-slide-01.png" type="Texture" id=12]
+[ext_resource path="res://assets/Individual Sprites/adventurer-idle-01.png" type="Texture" id=13]
+[ext_resource path="res://assets/Individual Sprites/adventurer-idle-02.png" type="Texture" id=14]
+[ext_resource path="res://assets/Individual Sprites/adventurer-run-00.png" type="Texture" id=15]
+[ext_resource path="res://assets/Individual Sprites/adventurer-jump-01.png" type="Texture" id=16]
+[ext_resource path="res://assets/Individual Sprites/adventurer-smrslt-00.png" type="Texture" id=17]
+[ext_resource path="res://assets/Individual Sprites/adventurer-smrslt-01.png" type="Texture" id=18]
+[ext_resource path="res://assets/Individual Sprites/adventurer-smrslt-02.png" type="Texture" id=19]
+[ext_resource path="res://assets/Individual Sprites/adventurer-jump-00.png" type="Texture" id=20]
+[ext_resource path="res://assets/Individual Sprites/adventurer-slide-00.png" type="Texture" id=21]
+[ext_resource path="res://assets/Individual Sprites/adventurer-idle-2-00.png" type="Texture" id=22]
+[ext_resource path="res://assets/Individual Sprites/adventurer-smrslt-03.png" type="Texture" id=23]
+[ext_resource path="res://assets/Individual Sprites/adventurer-idle-00.png" type="Texture" id=24]
+[ext_resource path="res://assets/Individual Sprites/adventurer-run-02.png" type="Texture" id=25]
+[ext_resource path="res://assets/Individual Sprites/adventurer-idle-2-02.png" type="Texture" id=26]
+[ext_resource path="res://assets/Individual Sprites/adventurer-run-03.png" type="Texture" id=27]
+[ext_resource path="res://player_rectangle_collision_shape.tres" type="Shape2D" id=28]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 24 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 4 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 5 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 16 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 1 ), ExtResource( 26 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "IdleSword",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Roll",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Slide",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fall"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Fall" ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Jump" ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Roll"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Roll" ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Run"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Run" ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Slide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Slide" ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Fall"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Roll"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Run"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Slide"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+advance_condition = "is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+advance_condition = "is_not_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+advance_condition = "is_not_falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+advance_condition = "is_falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+advance_condition = "is_falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+advance_condition = "is_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+advance_condition = "is_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+advance_condition = "is_not_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+advance_condition = "is_falling"
+
+[sub_resource type="AnimationNodeStateMachine" id=27]
+states/Fall/node = SubResource( 8 )
+states/Fall/position = Vector2( 803, 62 )
+states/Idle/node = SubResource( 9 )
+states/Idle/position = Vector2( 549, -9 )
+states/Jump/node = SubResource( 10 )
+states/Jump/position = Vector2( 544, 286 )
+states/Roll/node = SubResource( 11 )
+states/Roll/position = Vector2( 728, 218 )
+states/Run/node = SubResource( 12 )
+states/Run/position = Vector2( 311, 241 )
+states/Slide/node = SubResource( 13 )
+states/Slide/position = Vector2( 271, 78 )
+transitions = [ "Idle", "Run", SubResource( 14 ), "Run", "Idle", SubResource( 15 ), "Run", "Jump", SubResource( 16 ), "Idle", "Jump", SubResource( 17 ), "Jump", "Roll", SubResource( 18 ), "Roll", "Fall", SubResource( 19 ), "Fall", "Idle", SubResource( 20 ), "Idle", "Fall", SubResource( 21 ), "Run", "Fall", SubResource( 22 ), "Idle", "Slide", SubResource( 23 ), "Run", "Slide", SubResource( 24 ), "Slide", "Idle", SubResource( 25 ), "Slide", "Fall", SubResource( 26 ) ]
+start_node = "Idle"
+graph_offset = Vector2( 20, -61.7 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=28]
+
+[node name="Player" type="KinematicBody2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3.671 )
+shape = ExtResource( 28 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -4, 0 )
+enabled = true
+cast_to = Vector2( 0, 25 )
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2( 4, 0 )
+enabled = true
+cast_to = Vector2( 0, 25 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.1, 1.1 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 3
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fall = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Jump = SubResource( 4 )
+anims/Roll = SubResource( 5 )
+anims/Run = SubResource( 6 )
+anims/Slide = SubResource( 7 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 27 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 28 )
+parameters/conditions/is_falling = false
+parameters/conditions/is_moving = false
+parameters/conditions/is_not_falling = false
+parameters/conditions/is_not_moving = false
+parameters/conditions/is_not_sliding = false
+parameters/conditions/is_sliding = false

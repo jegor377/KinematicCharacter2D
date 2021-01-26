@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://background.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 72 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Level" type="StaticBody2D" parent="." groups=[
+"Floor",
+]]
+
+[node name="Sprite" type="Sprite" parent="Level"]
+scale = Vector2( 0.592593, 0.555556 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level"]
+position = Vector2( 0, -48 )
+polygon = PoolVector2Array( 0, 424, 288, 424, 288, 432, 264, 440, 184, 440, 176, 456, 176, 584, 392, 584, 392, 624, 576, 624, 576, 576, 1024, 576, 1024, 648, 0, 648 )
+
+[node name="Wall" type="StaticBody2D" parent="." groups=[
+"Floor",
+"Wall",
+]]
+position = Vector2( 168, 464 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource( 1 )
+
+[node name="Wall4" type="StaticBody2D" parent="." groups=[
+"Floor",
+"Wall",
+]]
+position = Vector2( 8, 304 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4"]
+shape = SubResource( 1 )
+
+[node name="Wall5" type="StaticBody2D" parent="." groups=[
+"Floor",
+"Wall",
+]]
+position = Vector2( 1016, 456 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall5"]
+shape = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 201.169, 333.712 )
